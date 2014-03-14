@@ -1,0 +1,10 @@
+{
+  "commands": {
+    "short_prefix": "!",
+    "allow_nick_as_prefix": true,
+    "lock_key": "super secret"
+  },
+  "operators": [
+    "beardedbarry"
+  ]
+}

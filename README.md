@@ -28,11 +28,10 @@ Here are a list of available plugins/modules:
 
  * Slave (tell the bot where to go)
  * Help (deal with help topics)
+ * Unv (query quake3-based servers, built for unvanquished.net, may have rcon functionality if requested)
 
 Here are a list of planned plugins/modules:
 
- * Q3 (query quake3-based servers)
- * RCon (remove access to RCon enabled servers)
  * Quote (quote text from irc chat, and store it)
  * Github
  * Trello

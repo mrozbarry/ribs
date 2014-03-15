@@ -68,11 +68,11 @@ class PluginFramework
   end
 
   def send_request( directive, data )
-    puts "Request> " + directive.to_s + " -> " + data.to_s
+    #puts "Request> " + directive.to_s + " -> " + data.to_s
     @request.send_string directive.to_s + " -> " + data.to_s
     msg = ""
     @request.recv_string msg, 0
-    puts "Response>" + msg
+    #puts "Response>" + msg
     return msg
   end
 
@@ -84,6 +84,10 @@ class PluginFramework
   end
 
   def command( location, from, cmd, param )
+    # overwrite me
+  end
+
+  def message( ircmsg )
     # overwrite me
   end
 
@@ -99,6 +103,7 @@ class PluginFramework
         contents = contents[1].split( " ", 2 )
         command ircmsg.has_key?( "channel" ) ? ircmsg["channel"] : ircmsg["args"][0], ircmsg["sender"], contents[0], contents[1]
       end
+      message ircmsg
     elsif key == "BOT:HELP"
       info = data.split(" ")
       if (info.count == 2) && (info[1] == @name)
@@ -115,6 +120,10 @@ class PluginFramework
       
 
     #override if needed?
+  end
+
+  def tick
+    # override me
   end
 
   def run
@@ -138,6 +147,7 @@ class PluginFramework
         @next_ping = Time.now.to_i + 60
       end
 
+      tick
 
     end
 
